@@ -7,5 +7,8 @@ class register(models.Model):
   password = models.CharField(max_length=128)
   confirm_password = models.CharField(max_length=128)
   
+  class Meta:
+    verbose_name_plural = "Registration"
+  
   def __str__(self):
     return f"{self.full_name} - {self.email} - {self.user_name}"

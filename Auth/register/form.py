@@ -1,10 +1,10 @@
 from typing import __all__
 from django import forms
-from .models import register as RegisterModel
+from .models import *
 
-class rg(forms.ModelForm):
+class registerForm(forms.ModelForm):
   class Meta:
-    model = RegisterModel
+    model = register
     fields = '__all__'
     label = {
       'full_name' : 'Full Name',
@@ -13,6 +13,25 @@ class rg(forms.ModelForm):
       'password' : 'Password',
       'confirm_password' : 'Confirm Password'
     }
+    widgets = {
+      'full_name': forms.TextInput(attrs={
+          'class': 'form-control',
+          'placeholder': 'Enter your full name'
+      }),
+      'email': forms.EmailInput(attrs={
+          'class': 'form-control',
+          'placeholder': 'Enter your email'
+      }),
+      'user_name': forms.TextInput(attrs={
+          'class': 'form-control',
+          'placeholder': 'Enter a username'
+      }),
+      'password': forms.PasswordInput(attrs={
+          'class': 'form-control',
+      }),
+      'confirm_password': forms.PasswordInput(attrs={
+          'class': 'form-control',
+      })}
     error_messages={
       "full_name" : {
         'required' : "Your full name must not be empty.",
