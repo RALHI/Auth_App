@@ -33,6 +33,9 @@
 
   <div class="register-form">
     <h2 class="text-center">Create Account</h2>
+    {% if code %}
+      {{code}}
+    {% endif %}
     <form method="POST" action="/">
       {% csrf_token %}
       {% for form in form %}
