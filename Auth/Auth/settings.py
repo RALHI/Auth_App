@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 ]
 
 EXTERNAL_APPS = [
+    'login',
     'register'
 ]
 
@@ -59,7 +60,9 @@ ROOT_URLCONF = "Auth.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+                BASE_DIR/"templates"
+            ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
