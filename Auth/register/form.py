@@ -47,11 +47,11 @@ class registerForm(forms.ModelForm):
       },
       "password" : {
         'required' : "Your password  must not be empty.",
-        'max_length': "Your password should be in max lenght : 128"
+        'max_length': "Your password should be in max lenght : 8"
       },
       "confirm_password" : {
         'required' : "Your confirm password  must not be empty.",
-        'max_length': "Your confirm password should be in max lenght : 128"
+        'max_length': "Your confirm password should be in max lenght : 8"
       },
     }
     

@@ -4,8 +4,8 @@ class register(models.Model):
   full_name = models.CharField(max_length=100)
   email = models.EmailField()
   user_name = models.CharField(max_length=50)
-  password = models.CharField(max_length=128)
-  confirm_password = models.CharField(max_length=128)
+  password = models.CharField(max_length=8)
+  confirm_password = models.CharField(max_length=8)
   
   class Meta:
     verbose_name_plural = "Registration"

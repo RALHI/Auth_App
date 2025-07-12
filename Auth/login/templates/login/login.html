@@ -26,22 +26,32 @@
   <div class="container">
       <div class="login-container">
         <h3 class="text-center mb-4">Login</h3>
-        <form>
-          <div class="mb-3">
-            <label for="username" class="form-label">Email or Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter your email or username" required>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+            {% if form.email.errors %}
+              <div class="error">{{ form.email.errors }}</div>
+            {% endif %}
           </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+
+          <div class="form-group">
+            {{ form.password.label_tag }}
+            {{ form.password }}
+            {% if form.password.errors %}
+              <div class="error">{{ form.password.errors }}</div>
+            {% endif %}
           </div>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="remember">
-            <label class="form-check-label" for="remember">Remember me</label>
-          </div>
+          <br>
           <button type="submit" class="btn btn-primary w-100">Login</button>
           <p class="text-center mt-3"><a href="#">Forgot password?</a></p>
       </form>
+      {% if data %}
+        <div>
+          {{data}}
+        </div>
+      {% endif %}
     </div>
   </div>
 {% endblock%}
